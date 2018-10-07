@@ -1,6 +1,7 @@
 package Procesos;
 
 import Entidades.Token;
+import Proceso.Proceso;
 
 /**
  *
@@ -11,112 +12,76 @@ import Entidades.Token;
  * predeterminadas de estructuras
  */
 public class Busquedas {
-    
+
     // Matriz predictiva
     public int matriz[][]
-         = {{1, 0, 0, 0,  0, 0, 0, 0,  0,  0,  0,  0, 0, 0,  0, 0,  0,  0, 0},
-            {0, 0, 2, 0,  0, 0, 0, 0,  0,  0,  0,  0, 0, 0,  0, 0,  0,  0, 0},
-            {0, 0, 3, 0,  0, 0, 0, 0,  0,  0,  0,  0, 0, 0,  0, 0,  0,  0, 0},
-            {0, 0, 0, 0,  0, 4, 4, 5,  0,  0,  0,  0, 0, 0,  0, 0,  0,  0, 0},
-            {0, 0, 0, 0,  6, 7, 7, 7,  0,  0,  0,  0, 0, 0,  0, 0,  0,  0, 0},
-            {0, 0, 0, 0,  0, 8, 9, 0,  0,  0,  0,  0, 0, 0,  0, 0,  0,  0, 0},
-            {0, 0, 0, 0,  0, 0, 0, 10, 0,  0,  0,  0, 0, 0,  0, 0,  0,  0, 0},
-            {0, 0, 0, 12, 0, 0, 0, 0,  13, 11, 0,  0, 0, 11, 0, 0,  0,  0, 0},
-            {0, 0, 0, 0,  0, 0, 0, 0,  0,  14, 0,  0, 0, 15, 0, 0,  0,  0, 0},
-            {0, 0, 0, 16, 0, 0, 0, 0,  0,  0,  0,  0, 0, 0,  0, 0,  0,  0, 0},
-            {0, 0, 0, 17, 0, 0, 0, 0,  0,  0,  0,  0, 0, 0,  0, 0,  17, 0, 0},
-            {0, 0, 0, 0,  0, 0, 0, 0,  0,  0,  0, 19, 0, 0,  0, 18, 0,  0, 0},
-            {0, 0, 0, 21, 0, 0, 0, 0,  0,  0,  0,  0, 0, 0,  0, 0,  20, 0, 0},
-            {0, 0, 0, 22, 0, 0, 0, 0,  0,  0,  0,  0, 0, 0,  0, 0,  0,  0, 0}};
+            = {{1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+            {0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+            {0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+            {0, 0, 0, 0, 0, 4, 4, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+            {0, 0, 0, 0, 6, 7, 7, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+            {0, 0, 0, 0, 0, 8, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+            {0, 0, 0, 0, 0, 0, 0, 10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+            {0, 0, 0, 12, 0, 0, 0, 0, 13, 11, 0, 0, 0, 11, 0, 0, 0, 0, 0},
+            {0, 0, 0, 0, 0, 0, 0, 0, 0, 14, 0, 0, 0, 15, 0, 0, 0, 0, 0},
+            {0, 0, 0, 16, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+            {0, 0, 0, 17, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 17, 0, 0},
+            {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 19, 0, 0, 0, 18, 0, 0, 0},
+            {0, 0, 0, 21, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 20, 0, 0},
+            {0, 0, 0, 22, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}};
 
     // Estructura con todos los lados derechos de la gramática
-    public String[] producciones = 
-        {"Iniciar code Finalizar", 
-        "forerunner statement",
-        "Variables assignment",
-        "datatype Id other assignment",
-        "",
-        ", Id other",
-        "",
-        "int",
-        "String",
-        "do sentences while condition",
-        "output_input sentences",
-        "operation sentences",
-        "",
-        "printf ( chain ) ;",
-        "captura Id ;",
-        "Id = Id + Id ;",
-        "data concatenation_list",
-        "+ data concatenation_list",
-        "",
-        "cadena",
-        "Id",
-        "Id == Char"};
+    public String[] producciones;
 
     // Símbolos no terminales
-    public String[] simbolNT = 
-        {"program",
-        "code",
-        "forerunner",
-        "assignment",
-        "other",
-        "datatype",
-        "statement",
-        "sentences",
-        "output_input",
-        "operation",
-        "chain",
-        "concatenation_list",
-        "data",
-        "condition"};
+    public String[] simbolNT;
 
     // Símbolos terminales
-    public String[] simbolT = 
-        {"Iniciar",
-        "Finalizar",
-        "Variables",
-        "Id",
-        ",",
-        "int",
-        "String",
-        "do",
-        "while",
-        "printf",
-        "(",
-        ")",
-        ";",
-        "captura",
-        "=",
-        "+",
-        "cadena",
-        "==",
-        "char"};
-
-    public Busquedas() {
-
+    public String[] simbolT;
+    
+    public void vaciadoDeGramatica() {
+        Proceso gramatica = new Proceso();
+        gramatica.ProcesarArchivo();
+        producciones = new String[gramatica.producciones.size()];
+        simbolNT = new String[gramatica.noTerminales.size()];
+        simbolT = new String[gramatica.terminales.size()];
+        
+        for (int i = 0; i < gramatica.producciones.size(); i++) {
+            producciones[i] = gramatica.producciones.get(i);
+        }
+        for (int i = 0; i < gramatica.noTerminales.size(); i++) {
+            simbolNT[i] = gramatica.noTerminales.get(i);
+        }
+        for (int i = 0; i < gramatica.terminales.size(); i++) {
+            simbolT[i] = gramatica.terminales.get(i);
+        }
+        
     }
     
-    //regresa la numeracion dentro de la matriz
-    public int getMatriz(int px, int pa){
+    public Busquedas() {
         
-        try{
-            System.out.println(px+"/"+pa);
+    }
+
+    //regresa la numeracion dentro de la matriz
+    public int getMatriz(int px, int pa) {
+        
+        try {
+            System.out.println(px + "/" + pa);
             return matriz[px][px];
             
-        }catch(Exception e){
+        } catch (Exception e) {
             
             return 0;
         }
         
     }
     
-    public int getAltoMatriz(){
+    public int getAltoMatriz() {
         
         return matriz.length;
     }
     
-    public int getAnchoMatriz(){
+    public int getAnchoMatriz() {
         
         return matriz[0].length;
     }
@@ -130,16 +95,14 @@ public class Busquedas {
             //System.out.println("Reservada --");
             for (int i = 0; i < simbolT.length; i++) {
 
-                
                 //System.out.println(a.getToken() + "/" +e.simbolT[i]);
                 //se busca el token dentro de los simbolos terminales
                 if (a.getToken().equals(simbolT[i])) {
 
-                    
                     //si se encuentra una coincidencia se regresa la posicion
                     return i;
                 }
-
+                
             }
 
             //se verficica la clasificacion para saber si es un identificador
@@ -154,7 +117,7 @@ public class Busquedas {
                     //si se encuentra una coincidencia se regresa la posicion
                     return i;
                 }
-
+                
             }
 
             //se verifica la clasificacion para saber si es un caracter simple
@@ -169,7 +132,7 @@ public class Busquedas {
                     //si se encuentra una coincidencia se regresa la posicion
                     return i;
                 }
-
+                
             }
 
             //se verifica la clasificacion para saber si es una cadena
@@ -184,7 +147,7 @@ public class Busquedas {
                     //si se encuentra una coincidencia se regresa la posicion
                     return i;
                 }
-
+                
             }
 
             //si la entrada no se encontro dentro de ninguna clasificacion
@@ -194,7 +157,7 @@ public class Busquedas {
             //y determinar que no se encontro
             //cambiar esta forma por una mas efectiva para llevar el control de errores
             return simbolT.length;
-
+            
         }
 
         //se retorna el tamaño de la lista para sobrepasar la matris
@@ -205,33 +168,33 @@ public class Busquedas {
 
     //buscar las posiciones de los no terminales
     public int posicionX(String x) {
-
+        
         for (int i = 0; i < simbolNT.length; i++) {
-
+            
             if (x.equals(simbolNT[i])) {
-
+                
                 return i;
-
+                
             }
-
+            
         }
-
+        
         return simbolNT.length;
     }
 
     //buscar las posiciones de los terminales
     public boolean isNoTerminal(String x) {
-
+        
         for (int i = 0; i < simbolNT.length; i++) {
-
+            
             if (x.equals(simbolNT[i])) {
-
+                
                 return true;
             }
-
+            
         }
-
+        
         return false;
     }
-
+    
 }
