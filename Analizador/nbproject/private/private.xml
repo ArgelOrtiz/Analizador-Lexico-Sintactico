@@ -3,21 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/crist/Desktop/GitHub/Analizador-LexicoSIntactico/Analizador/src/Pruebas/PruebaDriver.java</file>
-            <file>file:/C:/Users/crist/Desktop/GitHub/Analizador-LexicoSIntactico/Analizador/src/Utilidades/Controlador.java</file>
-            <file>file:/C:/Users/crist/Desktop/GitHub/Analizador-LexicoSIntactico/Analizador/src/Pruebas/PruebaToken.java</file>
-            <file>file:/C:/Users/crist/Desktop/GitHub/Analizador-LexicoSIntactico/Analizador/src/Pruebas/PruebaLexico.java</file>
-            <file>file:/C:/Users/crist/Desktop/GitHub/Analizador-LexicoSIntactico/Analizador/src/Extras/Clasificaciones.java</file>
-            <file>file:/C:/Users/crist/Desktop/GitHub/Analizador-LexicoSIntactico/Analizador/src/Pruebas/PruebaControlador.java</file>
-            <file>file:/C:/Users/crist/Desktop/GitHub/Analizador-LexicoSIntactico/Analizador/src/Utilidades/Pila.java</file>
-            <file>file:/C:/Users/crist/Desktop/GitHub/Analizador-LexicoSIntactico/Analizador/src/Procesos/LLDriver.java</file>
-            <file>file:/C:/Users/crist/Desktop/GitHub/Analizador-LexicoSIntactico/Analizador/src/Procesos/Busquedas.java</file>
-            <file>file:/C:/Users/crist/Desktop/GitHub/Analizador-LexicoSIntactico/Analizador/src/Utilidades/AnalizadorLexico.java</file>
-            <file>file:/C:/Users/crist/Desktop/GitHub/Analizador-LexicoSIntactico/Analizador/src/Entidades/Token.java</file>
-            <file>file:/C:/Users/crist/Desktop/GitHub/Analizador-LexicoSIntactico/Analizador/src/Scanner/Lector.java</file>
-            <file>file:/C:/Users/crist/Desktop/GitHub/Analizador-LexicoSIntactico/Analizador/src/Extras/ProcesosAuxiliares.java</file>
-            <file>file:/C:/Users/crist/Desktop/GitHub/Analizador-LexicoSIntactico/Analizador/src/Procesos/Lectura.java</file>
-            <file>file:/C:/Users/crist/Desktop/GitHub/Analizador-LexicoSIntactico/Analizador/src/Pruebas/PruebaLectura.java</file>
+            <file>file:/home/glitch/NetBeansProjects/Automatas/Analizador-Lexico-Sintactico/Analizador/src/Recursos%20Externos/Prueba.txt</file>
+            <file>file:/home/glitch/NetBeansProjects/Automatas/Analizador-Lexico-Sintactico/Analizador/src/Scanner/Lector.java</file>
+            <file>file:/home/glitch/NetBeansProjects/Automatas/Analizador-Lexico-Sintactico/Analizador/src/Recursos%20Externos/Gramatica.txt</file>
+            <file>file:/home/glitch/NetBeansProjects/Automatas/Analizador-Lexico-Sintactico/Analizador/src/Pruebas/PruebaDriver.java</file>
         </group>
     </open-files>
 </project-private>

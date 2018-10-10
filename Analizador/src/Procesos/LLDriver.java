@@ -36,7 +36,6 @@ public class LLDriver {
 
     //modificar metodos de comprobacion (Ubicados hasta abajo)
     public void analizar() {
-
         //se agrega el simbolo inicial
         p.push("program");
 
@@ -46,7 +45,7 @@ public class LLDriver {
         // asignando el token a "a"
         c.controlador();
 
-//        try {
+        try {
 
             //inicia el analisis sintactico
             while (!p.isEmpty()) {
@@ -156,10 +155,14 @@ public class LLDriver {
                             //si el terminal no es el caracter simple esperado    
                         } else {
                             //error 03/10/2018
+
                             System.out.println("2");
                             System.out.println("Error Lexico/Sintactico /--3--/");
                             System.exit(0);
-
+                            //error 07/10/2018
+                           // System.out.println(x);
+//                            System.out.println(a.getToken());
+//                            System.out.println(a.getClasificacion());
                         }
 
                         //verifica si el terminal es una cadena
@@ -229,13 +232,18 @@ public class LLDriver {
                 }
 
             }
-//        } catch (Exception e) {
-//
-//            System.out.println("Error Lexico/Sintactico --1--");
-//            System.out.println(e);
-//            System.exit(0);
-//
-//        }
+        } catch (Exception e) {
+////            error 8/10/2018
+//            System.out.println(x);
+//            System.out.println(a.getToken());
+//            System.out.println(a.getClasificacion());
+
+
+            System.out.println("Error Lexico/Sintactico --1--");
+            System.out.println(e);
+            System.exit(0);
+
+        }
 
         System.out.println(
                 "El programa es sintacticamente aceptado :D");

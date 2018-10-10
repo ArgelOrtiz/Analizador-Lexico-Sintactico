@@ -1,22 +1,22 @@
-program -> iniciar code finalizar #
+program -> Iniciar code Finalizar #
 code -> forerunner statement #
-forerunner -> variables assignment #
-assignment -> datatype id other assignment #
+forerunner -> Variables assignment #
+assignment -> datatype Id other assignment #
 assignment -> #
-other -> , id other #
+other -> , Id other #
 other -> #
 datatype -> int #
-datatype -> string #
+datatype -> String #
 statement -> do sentences while condition #
 sentences -> output_input sentences #
 sentences -> operation sentences #
 sentences -> #
 output_input -> printf ( chain ) ; #
-output_input -> captura id ; #
-operation -> id = id mas id ; #
+output_input -> captura Id ; #
+operation -> Id = Id + Id ; #
 chain -> data  concatenation_list #
-concatenation_list ->  mas data concatenation_list #
+concatenation_list ->  + data concatenation_list #
 concatenation_list -> #
 data -> cadena #
-data -> id #
-condition -> id == char #
+data -> Id #
+condition -> Id == Char #

@@ -78,29 +78,29 @@ public class Proceso {
         }
 
         //prueba de impresion
-        for (int i = 0; i < e.getGramatica().length; i++) {//Retorna la gramatica
-
-            System.out.println(e.getGramatica()[i]);
-        }
-        System.out.println("----------");
+//        for (int i = 0; i < e.getGramatica().length; i++) {//Retorna la gramatica
+//
+//            System.out.println(e.getGramatica()[i]);
+//        }
+//        System.out.println("----------");
 
         for (int i = 0; i < e.getSimbolsNT().length; i++) {//Retorna no terminales
             noTerminales.add(e.getSimbolsNT()[i]);
-            System.out.println(e.getSimbolsNT()[i]);
+//            System.out.println(noTerminales.get(i));
         }
 
-        System.out.println("----------");
+//        System.out.println("----------");
 
         for (int i = 0; i < e.getSimbolsT().length; i++) {//Retorna terminales
             terminales.add(e.getSimbolsT()[i]);
-            System.out.println(e.getSimbolsT()[i]);
+//            System.out.println(terminales.get(i));
         }
 
-        System.out.println("------------");
+//        System.out.println("------------");
 
         for (int i = 0; i < e.getProducciones().length; i++) {//Retorna las producciones
             producciones.add(e.getProducciones()[i]);
-            System.out.println(e.getProducciones()[i]);
+//            System.out.println(producciones.get(i));
         }
 
     }

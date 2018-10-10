@@ -48,18 +48,30 @@ public class Busquedas {
         
         for (int i = 0; i < gramatica.producciones.size(); i++) {
             producciones[i] = gramatica.producciones.get(i);
+//            System.out.println(producciones[i]);
         }
+//        System.out.println("-----------");
         for (int i = 0; i < gramatica.noTerminales.size(); i++) {
             simbolNT[i] = gramatica.noTerminales.get(i);
+//            System.out.println(simbolNT[i]);
         }
+//        System.out.println("-----------");
         for (int i = 0; i < gramatica.terminales.size(); i++) {
             simbolT[i] = gramatica.terminales.get(i);
+//            System.out.println(simbolT[i]);
         }
         
     }
+//344tr6t    public static void main(String[] args) {
+//        Busquedas o ;
+//        
+//        o = new Busquedas();
+//        
+// 
+//    }
     
     public Busquedas() {
-        
+        vaciadoDeGramatica();
     }
 
     //regresa la numeracion dentro de la matriz
