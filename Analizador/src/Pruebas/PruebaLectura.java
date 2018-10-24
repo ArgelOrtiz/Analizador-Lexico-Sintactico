@@ -1,6 +1,7 @@
 package Pruebas;
 
 import Procesos.Lectura;
+import Scanner.Lector;
 
 /**
  *
@@ -16,16 +17,17 @@ public class PruebaLectura {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+String [] programa;
+        Lector l = new Lector();
+        l.leeArch();
+       programa = l.pruebaArch(l.getArchivoR());
+       
+        for (int i = 0; i < programa.length; i++) {
+            System.out.println(programa[i]);
+            
+        }
+        
 
-        Lectura l = new Lectura();
-
-        System.out.println(l.metodoParche());
-        System.out.println(l.metodoParche());
-        System.out.println(l.metodoParche());
-        System.out.println(l.metodoParche());
-        System.out.println(l.metodoParche());
-        System.out.println(l.metodoParche());
-        System.out.println(l.metodoParche());
     }
 
 }

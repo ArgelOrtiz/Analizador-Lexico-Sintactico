@@ -13,7 +13,6 @@ public class Clasificaciones {
     
     public Boolean isWhite(char simbolo) {
         if (simbolo == ' ' || simbolo == '\n' || simbolo == '\t' || simbolo == '\r') {
-
             return true;
         } else {
             return false;

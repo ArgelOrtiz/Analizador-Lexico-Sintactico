@@ -196,7 +196,8 @@ public class Busquedas {
 
     //buscar las posiciones de los terminales
     public boolean isNoTerminal(String x) {
-        
+    //    System.out.println(simbolNT[0]);
+     //   System.out.println(simbolNT[1]);
         for (int i = 0; i < simbolNT.length; i++) {
             
             if (x.equals(simbolNT[i])) {

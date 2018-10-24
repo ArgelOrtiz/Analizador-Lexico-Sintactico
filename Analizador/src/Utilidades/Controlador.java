@@ -19,7 +19,7 @@ import Procesos.Lectura;
  *  Angel Cristian Alvrez Trujillo
  */
 public class Controlador {
-    
+
     Token t;
     Lectura l;
     AnalizadorLexico al;
@@ -35,9 +35,9 @@ public class Controlador {
     }
     
     public void controlador(){  // Verifica si hay algo en el archivo, en caso contrario retorna solo un espacio vacío
-        
-        al.q0(l.metodoParche(), t);
-        
+       
+        al.q0( l.metodoParche(), t);
+      
     }
     
 }

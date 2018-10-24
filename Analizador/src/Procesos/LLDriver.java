@@ -46,16 +46,16 @@ public class LLDriver {
         c.controlador();
 
         try {
-
+             
             //inicia el analisis sintactico
             while (!p.isEmpty()) {
-
+                
                 //si el token es un no terminal
                 if (b.isNoTerminal(x)) {
 
                     //se optiene la posicion del no terminal
                     int px = b.posicionX(x);
-
+                    
                     //se optiene la posicion del token
                     int pa = b.posicionA(a);
                    
@@ -238,7 +238,7 @@ public class LLDriver {
 //            System.out.println(a.getToken());
 //            System.out.println(a.getClasificacion());
 
-
+            e.printStackTrace();
             System.out.println("Error Lexico/Sintactico --1--");
             System.out.println(e);
             System.exit(0);

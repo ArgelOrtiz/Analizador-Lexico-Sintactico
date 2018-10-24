@@ -5,7 +5,7 @@
  */
 package Proceso;
 
-import Scanner.Lector_Gramatica;
+import Scanner.Lector;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -21,8 +21,8 @@ public class Proceso {
 
     File archivo;
     String nuevoArchivo;
-    Lector_Gramatica l;
-    Returns r;
+    Lector l;
+
     Clasificaciones c;
 
     Identificadores p;
@@ -35,11 +35,12 @@ public class Proceso {
 
     public Proceso() {
         p = new Identificadores();
-        l = new Lector_Gramatica();
+        l = new Lector();
         e = new Estructuras();
-        r = new Returns();
+        
+        l.leeArchG();
         c = new Clasificaciones();
-        archivo = l.leeArch();
+        archivo = l.getArchivoG();
         token = "";
         nuevoArchivo = "";
         noTerminales = new ArrayList<>();
@@ -54,7 +55,7 @@ public class Proceso {
                 Scanner scn = new Scanner(archivo);
                 while (scn.hasNext()) {
                     linea = scn.nextLine();
-
+                  
                     //llamada de metodo para agregar la gramatica completa
                     e.addGramatica(linea);
 
@@ -83,21 +84,18 @@ public class Proceso {
 //            System.out.println(e.getGramatica()[i]);
 //        }
 //        System.out.println("----------");
-
         for (int i = 0; i < e.getSimbolsNT().length; i++) {//Retorna no terminales
             noTerminales.add(e.getSimbolsNT()[i]);
 //            System.out.println(noTerminales.get(i));
         }
 
 //        System.out.println("----------");
-
         for (int i = 0; i < e.getSimbolsT().length; i++) {//Retorna terminales
             terminales.add(e.getSimbolsT()[i]);
 //            System.out.println(terminales.get(i));
         }
 
 //        System.out.println("------------");
-
         for (int i = 0; i < e.getProducciones().length; i++) {//Retorna las producciones
             producciones.add(e.getProducciones()[i]);
 //            System.out.println(producciones.get(i));
@@ -132,7 +130,7 @@ public class Proceso {
                 fin++;
             }
         } while (fin <= linea.length());
-
+        
         return token;
     }
 

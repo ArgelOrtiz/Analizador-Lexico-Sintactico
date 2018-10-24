@@ -21,73 +21,88 @@ public class Lectura {
     Clasificaciones c = new Clasificaciones();
     int inicio, fin;
     String token = "";
-    String linea;
+    String[] lineas;
+    int cont = 0;
 
     public Lectura() {
 
+        l.leeArch();
         lectura();
     }
 
     public void lectura() {
         inicio = 0;
         fin = inicio;
-        File archivo = l.leeArch();
+        File archivo = l.getArchivoR();
         try {
-//do{
-            linea = l.pruebaArch(archivo);
-
-            //a.q0(token);
-//}while(token !=null);
+            lineas = l.pruebaArch(archivo);
         } catch (Exception e) {
 
         }
     }
 
-    public String daTokenv2(String linea) {
+    public String daTokenv3(String[] linea) {
         String token = "";
-        do {
+        if (cont != linea.length) {
+            while (fin <= linea[cont].length()) {
+                if (fin == linea[cont].length()) {
+                    fin = 0;
+                    inicio = fin;
+                    if (cont != linea.length) {
+                        cont++;
+                        break;
+                    }
 
-            if (c.isWhite(linea.charAt(fin))) {// recorre los dos punteros cuando hay espacios en blanco
-                fin++;
-                inicio = fin;
+                } else {
 
-            } else if (c.isComillaDoble(linea.charAt(fin))) { //este entra primero. Si encuetra una comilla doble lee todo lo que tiene hasta que encuentra otra comilla doble
-                do {
-                    token += linea.charAt(fin);
-                    fin++;
+                    if (c.isWhite(linea[cont].charAt(fin))) {
+                        fin++;
+                        inicio = fin;
+                    } else if (c.isComillaDoble(linea[cont].charAt(fin))) { //este entra primero. Si encuetra una comilla doble lee todo lo que tiene hasta que encuentra otra comilla doble
+                        do {
+                            token += linea[cont].charAt(fin);
+                            fin++;
 
-                } while (!c.isComillaDoble(linea.charAt(fin)));// falta agregar que en caso de que no tenga comilla de cierre, sigua leyendo hasta el fin del archivo(varibale linea)
-                token += linea.charAt(fin);
-                fin++;//
-                inicio = fin;
-                break;
+                        } while (!c.isComillaDoble(linea[cont].charAt(fin)));// falta agregar que en caso de que no tenga comilla de cierre, sigua leyendo hasta el fin del archivo(varibale linea)
+                        token += linea[cont].charAt(fin);
+                        fin++;//
+                        inicio = fin;
+                        break;
 
-            } else if (c.isWhite(linea.charAt(fin + 1))) {// esta leyendo un caracter, si encuentra un espacio, corta y guarda el token. posteriormente se igualan los apuntadores 
-                //al lugar del ultimo espacio para que a partir de ahi, se comience a leer desde el ultimo punto cuando se vuelva a llamar el metodo
-                token += linea.charAt(fin);
-                fin++;
-                inicio = fin;
-                break;
+                    } else if (fin <= linea[cont].length() - 2) {
 
-            } else {
+                        if (c.isWhite(linea[cont].charAt(fin + 1))) {
 
-                token += linea.charAt(fin); // se concatena un caracter en la variable token
-                fin++;
+                            token += linea[cont].charAt(fin);
+                            fin++;
+                            inicio = fin;
+                            break;
+                        }
+                        token += linea[cont].charAt(fin);
+                        fin++;
+
+                    } else {
+                        token += linea[cont].charAt(fin);
+
+                        fin++;
+                    }
+                }
+
             }
-        } while (fin <= linea.length());// mientras el apuntador no sobrepase la longitud de la cadena, el ciclo sigue en ejecucion
+        }
 
         return token;
     }
 
-    public String metodoParche() {      // Metodo para saber si es fin de archivo, si lo es retorna un espacio vacío
+    public String metodoParche() {
+        String l = "";
 
-        try {
-
-            return token = daTokenv2(linea);
-
-        } catch (Exception e) {
-
+        l = token = daTokenv3(lineas);
+        if (l.length() != 0) {
+            return l;
+        } else {
             return " ";
         }
+
     }
 }

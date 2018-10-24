@@ -3,7 +3,6 @@ Variables
 	int a , b , c
 	String pregunta
 do
-
 	printf ( "Capture un numero" ) ;
 	captura a ;
 	printf ( "Capture otro numero" ) ;
@@ -12,7 +11,5 @@ do
 	printf ( "La suma de" + a + "mas" + b + "es:" + c ) ;
 	printf ( "Otro calculo?" ) ;
 	captura pregunta ;
-
 while pregunta == 's'
-
 Finalizar
