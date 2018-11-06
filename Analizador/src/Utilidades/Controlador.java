@@ -31,9 +31,10 @@ public class Controlador {
         al = new AnalizadorLexico();
         c = new Clasificaciones();
         
+        l.correccion();
         
+      
     }
-    
     public void controlador(){  // Verifica si hay algo en el archivo, en caso contrario retorna solo un espacio vacío
        
         al.q0( l.metodoParche(), t);

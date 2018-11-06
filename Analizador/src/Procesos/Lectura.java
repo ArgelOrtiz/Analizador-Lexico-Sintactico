@@ -21,7 +21,7 @@ public class Lectura {
     Clasificaciones c = new Clasificaciones();
     int inicio, fin;
     String token = "";
-    String[] lineas;
+    public String[] lineas;
     int cont = 0;
 
     public Lectura() {
@@ -93,13 +93,44 @@ public class Lectura {
 
         return token;
     }
+    
+    public void correccion(){
+        String[] aux = lineas;
+        int contador = 0;
+        
+        for (int i = 0; i < aux.length; i++) {
+            
+            if (aux[i].equals("")) {
+                contador++;
+                
+                for (int j = i; j < aux.length-1; j++) {
+                    
+                        aux [j] = aux[j+1];
+                                           
+                } 
+                
+                i--;
+            } 
+        }
+        
+        lineas = new String[aux.length-contador];
+        
+        for (int i = 0; i < lineas.length ; i++) {
+            
+            lineas [i] = aux[i];
+            
+        }
+        
+        
+        
+    }
 
     public String metodoParche() {
-        String l = "";
+        String token = "";
 
-        l = token = daTokenv3(lineas);
-        if (l.length() != 0) {
-            return l;
+        token  = daTokenv3(lineas);
+        if (token.length() != 0) {
+            return token;
         } else {
             return " ";
         }

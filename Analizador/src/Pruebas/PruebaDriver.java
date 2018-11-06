@@ -18,7 +18,13 @@ public class PruebaDriver {
         // TODO code application logic here
 
         LLDriver lld = new LLDriver();
-        lld.analizar();
+        
+        if (lld.analizar()) {
+            
+            System.out.println(
+                "El programa es sintacticamente aceptado :D");
+        }
+        
     }
 
 }

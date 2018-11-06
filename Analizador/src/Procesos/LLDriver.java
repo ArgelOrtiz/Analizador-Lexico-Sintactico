@@ -1,7 +1,9 @@
 package Procesos;
 
 import Entidades.Token;
+import Utilidades.AnalizadorSemantico;
 import Utilidades.Controlador;
+import Utilidades.ErrorHandling;
 import Utilidades.Pila;
 
 /**
@@ -16,11 +18,15 @@ import Utilidades.Pila;
  */
 public class LLDriver {
 
-    Pila p;         // Pila genérica
-    Token a;        // Estructura de token
-    Controlador c;  // Manejador del analizador lexico
-    String x;       // String auxiliar para el analisis
-    Busquedas b;    // Clase encargada de comprobar los terminales, no terminales y matriz predictiva
+    Pila p;                 // Pila genérica
+    Token a;                // Estructura de token
+    Controlador c;          // Manejador del analizador lexico
+    String x;               // String auxiliar para el analisis
+    Busquedas b;            // Clase encargada de comprobar los terminales, no terminales y matriz predictiva
+    AnalizadorSemantico al; // analizador semantico
+    ErrorHandling eh;         // Manejador de errores
+    boolean selector;       // variable para controlar el guardado de simbolos para el semantico
+    String type;            // seleccionador de tipo de variable
 
     
 
@@ -30,12 +36,16 @@ public class LLDriver {
         c = new Controlador(a);
         b = new Busquedas();
         p = new Pila();
-
+        al = new AnalizadorSemantico();
+        eh = new ErrorHandling();
+        selector = false;
+        type = new String();
+            
         x = "";
     }
 
     //modificar metodos de comprobacion (Ubicados hasta abajo)
-    public void analizar() {
+    public boolean analizar() {
         //se agrega el simbolo inicial
         p.push("program");
 
@@ -94,13 +104,10 @@ public class LLDriver {
                     //cuando no coinciden las entradas con lo esperado
                     } else {
 
-                        //espesificar los tipos de errores que causan esta salida
-                        System.out.println(a.getToken()+"/");
-                        System.out.println("Token no esperado en esa posicion");
-                        System.exit(0);
+                        eh.error(a.getToken(),"No es un token esperado en esa posicion" );
                     }
 
-                    //si x es un terminal
+                //si x es un terminal
                 } else {
 
 //                    System.out.println(x+"/"+a.getToken());
@@ -117,8 +124,7 @@ public class LLDriver {
                             //el terminal no es la palabra reservada esperada
                         } else {
 
-                            System.out.println("Error en las reservadas -LLD-");
-                            System.exit(0);
+                            eh.error(a.getToken(), "No se encuentra como parte de: "+a.getClasificacion());
 
                         }
 
@@ -132,14 +138,21 @@ public class LLDriver {
 
                             //proceso para leer el siguiente elemento de la pila
                             procesoTerminal();
+                            
+                            if (selector) {
+                                
+                                if (al.insert(a.getToken(), type)) {
+                                    
+                                }else{
+                                    
+                                    eh.error(a.getToken(), "El identificador fue previamente utilizado");
+                                }
+                            }
 
                             //revisar ambiguedad
                         } else {
-
-                            System.out.println(x+"/"+a.getToken()+"/"+a.getClasificacion());
-                            System.out.println("1");
-                            System.out.println("Error Lexico/Sintactico --3--");
-                            System.exit(0);
+                            
+                            eh.error(a.getClasificacion(),"No es una clasificacion esperada en esa posicion" );
 
                         }
 
@@ -151,18 +164,21 @@ public class LLDriver {
 
                             //proceso para leer el siguiente elemento de la pila
                             procesoTerminal();
+                            
+                            
+                            //procesos para identificaer la declaracion de variables
+                            if (a.getToken().equals("String")) {
+                                selector = true;
+                            }else if(a.getToken().equals("int")){
+                                selector = true;
+                            }else{
+                                selector = false;
+                            }
 
                             //si el terminal no es el caracter simple esperado    
                         } else {
-                            //error 03/10/2018
 
-                            System.out.println("2");
-                            System.out.println("Error Lexico/Sintactico /--3--/");
-                            System.exit(0);
-                            //error 07/10/2018
-                           // System.out.println(x);
-//                            System.out.println(a.getToken());
-//                            System.out.println(a.getClasificacion());
+                          eh.error(a.getToken(),"No es un token esperado en esa posicion" );                           
                         }
 
                         //verifica si el terminal es una cadena
@@ -179,9 +195,7 @@ public class LLDriver {
                             //revisar ambiguedad del error    
                         } else {
 
-                            System.out.println("3");
-                            System.out.println("Error Lexico/Sintactico --3--");
-                            System.exit(0);
+                            eh.error(a.getToken(),"No es un token esperado en esa posicion" );   
 
                         }
 
@@ -197,9 +211,7 @@ public class LLDriver {
                             //el terminal no es un operador esperado
                         } else {
                             
-                            System.out.println("4");
-                            System.out.println("Error Lexico/Sintactico --3--");
-                            System.exit(0);
+                           eh.error(a.getToken(),"No es un token esperado en esa posicion" );   
 
                         }
 
@@ -214,39 +226,28 @@ public class LLDriver {
 
                             //revisar ambiguedad del error    
                         } else {
-                            System.out.println("5");
-                            System.out.println("Error Lexico/Sintactico --3--");
-                            System.exit(0);
-
+                        
+                            eh.error(a.getToken(),"No es un token esperado en esa posicion" );   
                         }
                         //si el terminal no pertenece a ninguna clasificacion
                     }else{
-                        System.out.println("6");
-                        System.out.println(x + " / " + a.getToken()+"/"+a.getClasificacion());
-
-                        System.out.println("Error Lexico/Sintactico --3--");
-                        System.exit(0);
+                        
+                    eh.error(a.getToken(),"No es un token reconocido por el sistema" );   
 
                     }
 
                 }
 
             }
-        } catch (Exception e) {
-////            error 8/10/2018
-//            System.out.println(x);
-//            System.out.println(a.getToken());
-//            System.out.println(a.getClasificacion());
+        } catch (Exception e) {    
 
-            e.printStackTrace();
-            System.out.println("Error Lexico/Sintactico --1--");
-            System.out.println(e);
-            System.exit(0);
+           
+            eh.error(a.getToken(),"Error no controlado con "+a.getClasificacion() );   
 
         }
 
-        System.out.println(
-                "El programa es sintacticamente aceptado :D");
+        return true;
+        
 
     }
 

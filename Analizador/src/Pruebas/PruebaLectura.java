@@ -17,16 +17,27 @@ public class PruebaLectura {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-String [] programa;
-        Lector l = new Lector();
-        l.leeArch();
-       programa = l.pruebaArch(l.getArchivoR());
-       
+        
+        String [] programa;
+        //Lector l = new Lector();
+        //l.leeArch();
+        //programa = l.pruebaArch(l.getArchivoR());
+        
+        Lectura le = new Lectura();
+        programa = le.lineas;
         for (int i = 0; i < programa.length; i++) {
             System.out.println(programa[i]);
             
         }
         
+        
+        
+        le.correccion();
+        programa = le.lineas;
+        for (int i = 0; i < programa.length; i++) {
+            
+            System.out.println(programa[i]);
+        }
 
     }
 
