@@ -3,7 +3,14 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/A:/ITL/Lenguajes%20y%20Automatas%20ll/Analizador%20sintactico/Analizador-Lexico-Sintactico/Analizador/src/Pruebas/PruebaDriver.java</file>
+            <file>file:/C:/Users/trebo/Desktop/auto/Analizador-Lexico-Sintactico/Analizador/src/Utilidades/ErrorHandling.java</file>
+            <file>file:/C:/Users/trebo/Desktop/auto/Analizador-Lexico-Sintactico/Analizador/src/Utilidades/Controlador.java</file>
+            <file>file:/C:/Users/trebo/Desktop/auto/Analizador-Lexico-Sintactico/Analizador/src/Procesos/Busquedas.java</file>
+            <file>file:/C:/Users/trebo/Desktop/auto/Analizador-Lexico-Sintactico/Analizador/src/Procesos/LLDriver.java</file>
+            <file>file:/C:/Users/trebo/Desktop/auto/Analizador-Lexico-Sintactico/Analizador/src/Utilidades/AnalizadorLexico.java</file>
+            <file>file:/C:/Users/trebo/Desktop/auto/Analizador-Lexico-Sintactico/Analizador/src/Pruebas/PruebaDriver.java</file>
+            <file>file:/C:/Users/trebo/Desktop/auto/Analizador-Lexico-Sintactico/Analizador/src/Procesos/Lectura.java</file>
+            <file>file:/C:/Users/trebo/Desktop/auto/Analizador-Lexico-Sintactico/Analizador/src/Entidades/Token.java</file>
         </group>
     </open-files>
 </project-private>

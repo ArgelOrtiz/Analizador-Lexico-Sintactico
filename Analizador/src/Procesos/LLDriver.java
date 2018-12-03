@@ -104,7 +104,7 @@ public class LLDriver {
                     //cuando no coinciden las entradas con lo esperado
                     } else {
 
-                        eh.error(a.getToken(),"No es un token esperado en esa posicion" );
+                        eh.error(a.getToken(),"Primer error" );
                     }
 
                 //si x es un terminal
