@@ -23,4 +23,12 @@ public class ErrorHandling {
         System.exit(0);
         
     }
+    
+    public void error(String token,String errorType,String clasificacion){
+        
+        System.err.println("Clasification: " +clasificacion+"\n token: "+ token + "\n "+ errorType);
+        
+        System.exit(0);
+        
+    }
 }

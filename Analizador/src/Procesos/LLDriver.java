@@ -103,8 +103,16 @@ public class LLDriver {
 
                     //cuando no coinciden las entradas con lo esperado
                     } else {
-
-                        eh.error(a.getToken(),"Primer error" );
+                        
+                        if(a.getClasificacion().equals("Reservada")){
+                           eh.error(a.getToken(),"not a statement \n Syntactic error",a.getClasificacion());// habia  
+                        }else if(a.getClasificacion().equals("Caracter Simple")){
+                        eh.error(a.getToken(),"unexpected character \n Syntactic error",a.getClasificacion());// + ;
+                        }else{
+                           eh.error(a.getToken(),"Identifier not expected \n Syntactic error",a.getClasificacion());// int
+                        }
+                        
+                           
                     }
 
                 //si x es un terminal
@@ -124,7 +132,7 @@ public class LLDriver {
                             //el terminal no es la palabra reservada esperada
                         } else {
 
-                            eh.error(a.getToken(), "No se encuentra como parte de: "+a.getClasificacion());
+                             eh.error(a.getToken(),"not a statement \n Syntactic error",a.getClasificacion());
 
                         }
 
@@ -177,8 +185,8 @@ public class LLDriver {
 
                             //si el terminal no es el caracter simple esperado    
                         } else {
-
-                          eh.error(a.getToken(),"No es un token esperado en esa posicion" );                           
+                            eh.error(a.getToken(),"Bad operation \n Syntax error",a.getClasificacion());//a==+c;
+                          //eh.error(a.getToken(),"No es un token esperado edvcxcsxn esa posicion" );                           
                         }
 
                         //verifica si el terminal es una cadena
@@ -195,7 +203,7 @@ public class LLDriver {
                             //revisar ambiguedad del error    
                         } else {
 
-                            eh.error(a.getToken(),"No es un token esperado en esa posicion" );   
+                            eh.error(a.getToken(),"No es un token esperaz<do en esa posicion" );   
 
                         }
 
@@ -211,7 +219,7 @@ public class LLDriver {
                             //el terminal no es un operador esperado
                         } else {
                             
-                           eh.error(a.getToken(),"No es un token esperado en esa posicion" );   
+                           eh.error(a.getToken(),"No es un tokezzscn esperado en 3esa posicion" );   
 
                         }
 
@@ -227,12 +235,13 @@ public class LLDriver {
                             //revisar ambiguedad del error    
                         } else {
                         
-                            eh.error(a.getToken(),"No es un token esperado en esa posicion" );   
+                            eh.error(a.getToken(),"No es un token esperadoz en esa posicion" );   
                         }
                         //si el terminal no pertenece a ninguna clasificacion
                     }else{
                         
-                    eh.error(a.getToken(),"No es un token reconocido por el sistema" );   
+                    //eh.error(a.getToken(),"chain not detected \n syntacticsdd error");
+                    eh.error(a.getToken(),"" );// ;; ""
 
                     }
 
@@ -242,7 +251,7 @@ public class LLDriver {
         } catch (Exception e) {    
 
            
-            eh.error(a.getToken(),"Error no controlado con "+a.getClasificacion() );   
+            eh.error(a.getToken(),"Error no controlado codfvn "+a.getClasificacion() );   
 
         }
 

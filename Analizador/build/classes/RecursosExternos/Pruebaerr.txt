@@ -1,7 +1,7 @@
 Iniciar
 Variables
 	int a , b , c
-	habia una vez
+	habia
 do
 	printf ( "Capture un numero" ) ;
 	captura a ;
